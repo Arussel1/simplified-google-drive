@@ -1,0 +1,30 @@
+extends layout
+
+block content
+    
+    if errors && errors.length > 0
+     div(class="error-container")
+      ul
+      each error in errors
+       li(class="error-message")
+        span #{error.msg}
+
+    form.login(action="/login", method="POST")
+        p.title Login
+        div.formcomponent
+            label(for="username") Username
+            input(type="text"
+                  name="username"
+                  value=(formInfo ? formInfo.username : '')
+                  autocomplete="new-password")
+        div.formcomponent
+            label(for="password") Password
+            input(type="password"
+                  name="password"
+                  value=(formInfo ? formInfo.password : '')
+                  autocomplete="new-password")
+
+        button.formbutton(type="submit") Login
+
+        p.text-center Didn't have an account? 
+            a(href="/register") Register

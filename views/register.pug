@@ -1,0 +1,52 @@
+extends layout
+
+block content
+    
+    if errors && errors.length > 0
+     div(class="error-container")
+      ul
+      each error in errors
+       li(class="error-message")
+        span #{error.msg}
+
+    form.register(action="/register", method="POST")
+        p.title Sign up
+        div.namecontainer
+            div(class="formcomponent firstname")
+                  label(for="firstname") First name
+                  input(type="text"
+                        id="firstname"
+                        name="firstname"
+                        value=(formInfo ? formInfo.firstname : '')
+                        autofocus)
+            div.formcomponent
+                  label(for="firstname") Last name
+                  input(type="text"
+                        id="lastname"
+                        name="lastname"
+                        value=(formInfo ? formInfo.lastname : ''))
+        
+        div.formcomponent
+            label(for="username") Username
+            input(type="text"
+                  name="username"
+                  value=(formInfo ? formInfo.username : ''))
+
+        div.formcomponent
+            label(for="new-password") Password
+            input(type="password"
+                  name="password"
+                  value=(formInfo ? formInfo.password : '')
+                  autocomplete="new-password")
+        
+        div.formcomponent
+            label(for="confirmpassword") Confirm password
+            input(type="password"
+                  name="confirmpassword"
+                  value=(formInfo ? formInfo.confirm_password : '')
+                  autocomplete="new-password")
+
+        button.formbutton(type="submit") Sign Up
+
+        p.text-center Already have an account? 
+            a(href="/login") Log in

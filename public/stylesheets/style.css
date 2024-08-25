@@ -1,0 +1,114 @@
+/* CSS var and font */
+:root{
+  font-family:'Roboto',sans-serif;
+  font-size: 16px
+}
+/* Reset CSS */
+*,
+*::before,
+*::after {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+/* Importance smooth */
+html {
+  scroll-behavior: smooth; 
+}
+
+
+.title{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  text-align: center;
+  font-weight: 500;
+
+}
+
+/* Error styling */
+
+.error-container {
+  margin: 1rem 25%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #fdecea; /* Light red background */
+  border: 1px solid #f5c6cb; /* Slightly darker red border */
+  border-radius: 0.375rem; /* Rounded corners */
+}
+
+.error-message {
+  color: #721c24; /* Dark red text color */
+  font-size: 0.875rem; /* Small text size */
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.error-message:last-child {
+  margin-bottom: 0; 
+}
+
+.error-message span {
+  margin-left: 0.5rem; 
+}
+
+.error-message::before {
+  content: "⚠️"; 
+  margin-right: 0.5rem;
+  font-size: 1rem;
+}
+
+/* From styling */
+form.register, form.login{
+  margin: 0 25%;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  margin-top: 3rem;
+}
+
+label{
+  margin: 0.5rem 0;
+}
+
+input{
+  height: 30px;
+  padding-left: 0.5rem;
+  font-family: 'Roboto', sans-serif;
+  
+}
+
+.namecontainer {
+  display: flex;
+  justify-content: space-between; 
+}
+
+.namecontainer > .formcomponent {
+  flex: 1; 
+  margin-right: 1rem;
+}
+
+.namecontainer > .formcomponent:last-child {
+  margin-right: 0; 
+}
+
+.formcomponent{
+  display:flex;
+  flex-direction: column;
+}
+
+.formbutton{
+  width: 100px;
+  height: 40px;
+  margin: 1rem 0;
+  border: none;
+  background-color: rgb(22, 145, 22);
+  color: white;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.formbutton:hover{
+  cursor: pointer;
+  background-color: rgb(8, 73, 8);
+}
