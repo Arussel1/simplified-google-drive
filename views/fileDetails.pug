@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  div.file-details
+    h1 File Details
+    p Name: #{fileName}
+    p Size: #{fileSize} bytes
+    p Uploaded on: #{uploadTime}
+    a(href=fileUrl) Download File

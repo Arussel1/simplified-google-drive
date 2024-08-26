@@ -29,14 +29,17 @@ model User {
   files    File[]
   folders  Folder[]
 }
-
 model Folder {
-  id     Int    @id @default(autoincrement())
-  name   String @db.VarChar(30)
-  files  File[]
-  user   User   @relation(fields: [userId], references: [id])
-  userId Int
+  id       Int      @id @default(autoincrement())
+  name     String   @db.VarChar(30)
+  parent   Folder?  @relation("FolderParent", fields: [parentId], references: [id])
+  parentId Int?
+  children Folder[] @relation("FolderParent")
+  files    File[]
+  user     User     @relation(fields: [userId], references: [id])
+  userId   Int
 }
+
 
 model File {
   id        Int      @id @default(autoincrement())

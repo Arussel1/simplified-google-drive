@@ -112,3 +112,131 @@ input{
   cursor: pointer;
   background-color: rgb(8, 73, 8);
 }
+
+/* Nav bar */
+
+.nav{
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 2rem;
+}
+
+.logo{
+  width: 100px;
+  height: 100px;
+  margin-right: auto;
+}
+
+.avatar{
+  border: 1px solid black;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.sidebar{
+  display: flex;
+  flex-direction: column;
+  max-width: 20%;
+}
+
+.createfolder{
+  padding: 0.5rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.createfolder > button{
+  padding: 0.5rem 1rem;
+  width: 180px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  border-radius: 16px;
+  transition: background-color 0.3s;
+}
+
+.createfolder > button:hover, form.uploadfile > button:hover{
+  background-color: #ada5a5;
+  cursor: pointer;
+}
+
+.createfolder > button > .plus{
+  margin-right: 1rem;
+}
+
+.createfolder > button > p{
+  font-size: 16px;
+}
+
+.uploadfile{
+  padding: 0.5rem 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.uploadfile > input{
+  padding: 0;
+  width: 180px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+form.uploadfile input[type='file'] {
+  border-radius: 5px;
+  font-size: 14px;
+  width: 100%;
+  background-color: none;
+  box-sizing: border-box;
+}
+
+form.uploadfile button {
+  width: 120px;
+  height: 40px;
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 16px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+.body{
+  display: flex;
+  gap:100px;
+}
+
+.subtitle{
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.folder, .file{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-bottom: 2rem;
+}
+
+.folder button, .file button{
+  display: flex;
+  align-items: center;
+  gap:1rem;
+  padding: 0.5rem 1rem;
+  width: 200px;
+  height:50px;
+  background-color: #ddd9d9;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px #ddd9d9;
+}
+
+.folder button:hover, .file button:hover{
+  cursor: pointer;
+  background-color: #969191;
+  transition: background-color 0.3s;
+}

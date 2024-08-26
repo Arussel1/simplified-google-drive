@@ -1,9 +1,30 @@
 extends layout
 
 block content
-    h1 #{title} 
-    p  Welcome to #{title}
-    p Upload File
-    form(action='/upload', method='post', enctype='multipart/form-data')
-      input(type='file', name='file')
-      button(type='submit') Upload
+  div.nav 
+    img.logo( src="/images/logo.svg" alt="logo")
+    img.avatar(src="/images/avatar.svg" alt="avatar")
+    p #{firstname} #{lastname}
+  div.body
+    div.sidebar
+      form.createfolder(action=currentFolderId ? `/folders/create/${currentFolderId}` : '/folders/create' method='GET')
+        button(type='submit') 
+          image.plus(src="/images/plus.svg" alt="plus") 
+          p New folder
+      form.uploadfile(action='/upload', method='POST', enctype='multipart/form-data')
+        input(type='file', name='file')
+        button(type='submit') Upload
+    div.content
+      p.subtitle Folders
+      div.folder 
+        each folder in folders
+          form(action=`/folders/${folder.id}` method='GET')
+            button(type='submit')
+              img(src="/images/folder.svg") 
+              p #{folder.name}
+      
+      p.subtitle Files
+      div.file
+        each file in files
+          form(action=`/${file.id}` method='GET')
+            button(type='submit') #{file.name}

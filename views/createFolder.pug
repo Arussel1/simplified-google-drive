@@ -1,0 +1,12 @@
+extends layout
+
+block content
+
+    form.login(action=currentFolderId ? `/folders/create/${currentFolderId}` : '/folders/create' method='POST')
+        p.title Create new folder
+        div.formcomponent
+            label(for="name") Name
+            input(type="text"
+                  name="name")
+
+        button.formbutton(type="submit") Submit
