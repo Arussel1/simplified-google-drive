@@ -10,41 +10,41 @@ Ensure [Node](https://nodejs.org/en) and [npm](https://www.npmjs.comnode) are in
 ### Steps:
 1. Clone the repo: <br>
 
-bash
-git clone https://github.com/Arussel1/simplified-google-drive
-
+```bash
+git clone https://github.com/YourUserName/simplified-google-drive
+```
 
 2. Navigate to the project folder:<br>
 
-bash
+```bash
 cd simplified-google-drive
-
+```
 
 3. Install the dependencies:<br>
 
-bash
+```bash
 npm install
-
+```
 
 4. Create the .env file:<br>
 
-bash
+```bash
 touch .env
-
+```
 
 5. Add your environment inside the file: <br>
 
-bash
+```bash
 DB_CONNECTION_STRING=
 PORT=
 FOO_COOKIE_SECRET=
-
+```
 
 6. Start the dev server:<br>
 
-bash
+```bash
 npm run dev
-
+```
 
 
 After these step, you should browser and navigate to http://localhost:3000 to view the application in action.
@@ -52,15 +52,15 @@ After these step, you should browser and navigate to http://localhost:3000 to vi
 
 To prepare the project for production deployment, please use the following command: <br>
 
-bash
+```bash
 npm start
-
+```
 
 ## Tech stack:
 + [Node](https://nodejs.org/en) as runtime environment. <br>
 + [Pug](https://pugjs.org/api/getting-started.html) as server-side template rendering. <br>
 + [Express](https://expressjs.com/) as backend framework. <br>
-+ [PostgreSQL](https://www.postgresql.org/) SQL database for storing inventory information. <br>
++ [PostgreSQL](https://www.postgresql.org/) SQL database for storing user, folder and file information. <br>
 + [Typescript](https://www.postgresql.org/) strongly-typed language for building robust and scalable applications. <br>
 + [Passport](https://www.passportjs.org/) Authentication middleware for managing user authentication and session handling in Node applications. <br>
 +[Prisma](https://www.prisma.io/) Simplified database realation and query for SQL and NoSQL database
