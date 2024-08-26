@@ -1,11 +1,11 @@
 import { UserQueries, User, FolderQueries, FileQueries } from "../config/queries";
 import { Request, Response, NextFunction } from "express";
-import path from 'path';
 
 const userQueries = new UserQueries();
 const folderQueries = new FolderQueries();
 const fileQueries = new FileQueries();
-
+  
+  
 export const getFolderPath = async (folderId: number, userId: number): Promise<string[]> => {
     const path = [];
     let currentFolder = await folderQueries.getSingleFolderById(userId,folderId);
@@ -16,7 +16,6 @@ export const getFolderPath = async (folderId: number, userId: number): Promise<s
             ? await folderQueries.getSingleFolderById(userId,currentFolder.parentId)
             : null;
     }
-    console.log(path)
     return path;
 };
 
@@ -30,7 +29,6 @@ export const getFolderPathIds = async (folderId: number, userId: number): Promis
             ? await folderQueries.getSingleFolderById(userId, currentFolder.parentId)
             : null;
     }
-    console.log(pathIds)
     return pathIds;
 };
 
@@ -82,41 +80,7 @@ export const controlFolderPost = async (req: Request, res: Response, next: NextF
         next(error); 
     }
 };
-export const controlFileGet = async (req: Request, res: Response, next: NextFunction) => {
-    try {
-        const fileId = Number(req.params.id);
-        const userId = (req.user as User).id;
 
-        const file = await fileQueries.getFileById(userId, fileId);
+export const controlFolderPut = async (req: Request, res: Response, next:NextFunction) => {}
 
-        if (!file) {
-            return res.status(404).send('File not found');
-        }
-
-        res.render('fileDetails', {
-            fileName: file.name,
-            fileSize: file.size,
-            uploadTime: file.createdAt,
-            fileUrl: `/files/download/${file.id}`  
-        });
-    } catch (error) {
-        next(error); 
-    }}
-export const downloadFile = async (req: Request, res: Response, next: NextFunction) => {
-    try {
-        const fileId = Number(req.params.id);
-        const userId = (req.user as User).id;
-
-        const file = await fileQueries.getFileById(userId, fileId);
-
-        if (!file) {
-            return res.status(404).send('File not found');
-        }
-
-        const filePath = path.join(__dirname, '../uploads', file.name);  
-
-        res.download(filePath, file.name);
-    } catch (error) {
-        next(error); 
-    }
-};
+export const controlFolderDelete = async (req: Request, res: Response, next:NextFunction) => {}

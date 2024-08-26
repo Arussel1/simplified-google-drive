@@ -1,7 +1,7 @@
 import express from 'express';
 import { controlSignUpPost, controlLoginPost, isAuthenticated } from '../controllers/authentication';
-import {  controlFolderPost, controlFolderGet, controlFileGet, downloadFile } from '../controllers/home'
-
+import {  controlFolderPost, controlFolderGet, controlFolderDelete, controlFolderPut } from '../controllers/folders'
+import { controlFileGet, controlFilePost, downloadFile } from '../controllers/files';
 import upload from '../config/multerConfig';
 const router = express.Router();
 
@@ -39,12 +39,9 @@ router.post('/logout', (req, res, next) => {
   });
 });
 
-router.post('/upload', isAuthenticated, upload.single('file'), (req, res) => {
-  if (!req.file) {
-    return res.status(400).send('No file uploaded.');
-  }
-  res.redirect('/');
-});
+router.post('/upload', isAuthenticated, upload.single('file'), controlFilePost);
+router.post('/upload/:folderId', isAuthenticated, upload.single('file'), controlFilePost);
+
 router.get('/folders/create', isAuthenticated, (req, res, next) => {
   res.render('createFolder', { currentFolderId: null});
 });
@@ -54,5 +51,11 @@ router.get('/folders/create/:id', isAuthenticated, (req, res, next) => {
 router.post('/folders/create/:id', isAuthenticated, controlFolderPost);
 router.post('/folders/create', isAuthenticated, controlFolderPost);
 
+router.get('/folders/update/:id', isAuthenticated, (req, res, next) => {
+  res.render('updateFolder')
+})
+router.put('folders/:id', isAuthenticated, controlFolderPut)
+
+router.delete('folder/:id', isAuthenticated, controlFolderDelete)
 
 export default router

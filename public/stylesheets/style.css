@@ -133,6 +133,25 @@ input{
   margin-right: 1rem;
 }
 
+.logout{
+  margin-left: 1rem;
+}
+
+.logout button{
+  width: 80px;
+  height: 30px;
+  border: none;
+  background-color: #ddd9d9;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+.logout button:hover{
+  cursor: pointer;
+  transition: background-color 0.3s;
+  background-color: #969191;
+}
+
 .sidebar{
   display: flex;
   flex-direction: column;
@@ -154,12 +173,12 @@ input{
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   border-radius: 16px;
-  transition: background-color 0.3s;
 }
 
 .createfolder > button:hover, form.uploadfile > button:hover{
   background-color: #ada5a5;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .createfolder > button > .plus{
@@ -261,4 +280,14 @@ form.uploadfile button {
   cursor: pointer;
   background-color: #969191;
   transition: background-color 0.3s;
+}
+
+.file button{
+  background-color: #FFF;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  border: 1px solid black
+}
+
+.file button:hover{
+  background-color: #c2bebe;
 }

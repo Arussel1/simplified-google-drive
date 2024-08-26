@@ -6,4 +6,5 @@ block content
     p Name: #{fileName}
     p Size: #{fileSize} bytes
     p Uploaded on: #{uploadTime}
-    a(href=fileUrl) Download File
+    a(href=`/files/download/${fileId}`) Download File
+    a(href='/') Return to Home

@@ -5,6 +5,8 @@ block content
     img.logo(src="/images/logo.svg" alt="logo")
     img.avatar(src="/images/avatar.svg" alt="avatar")
     p #{firstname} #{lastname}
+    form.logout(action='/logout' method='POST')
+        button(type='submit') Log out
          
   div.body
     div.sidebar
@@ -12,7 +14,7 @@ block content
         button(type='submit') 
           img.plus(src="/images/plus.svg" alt="plus") 
           p New folder
-      form.uploadfile(action='/upload', method='POST', enctype='multipart/form-data')
+      form.uploadfile(action=currentFolderId ? `/upload/${currentFolderId}` : '/upload', method='POST', enctype='multipart/form-data')
         input(type='file', name='file')
         button(type='submit') Upload
     
@@ -39,5 +41,5 @@ block content
       p.subtitle Files
       div.file
         each file in files
-          form(action=`/${file.id}` method='GET')
+          form(action=`/files/${file.id}` method='GET')
             button(type='submit') #{file.name}

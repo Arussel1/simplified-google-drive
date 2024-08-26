@@ -1,5 +1,14 @@
 import { PrismaClient } from '@prisma/client';
 
+
+export interface FileRecord {
+    id: number;
+    name: string;
+    url: string;
+    size: number;
+    folderId: number | null;
+    userId: number;
+  }
 export interface User {
     id: number;
     firstname: string;
@@ -118,4 +127,17 @@ export class FileQueries{
             select: { id: true, name: true, size: true , createdAt: true, url:true,  }
         })
     }
-}
+    async saveFileUrlToDatabase( name: string, url: string, size: number, userId: number, folderId?: number): Promise<FileRecord> {
+        const fileRecord = await this.prisma.file.create({
+          data: {
+            name,
+            url,
+            size,
+            userId,
+            folderId, 
+          },
+        });
+      
+        return fileRecord;
+      }
+    }
