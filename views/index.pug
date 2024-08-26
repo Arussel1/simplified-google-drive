@@ -2,19 +2,32 @@ extends layout
 
 block content
   div.nav 
-    img.logo( src="/images/logo.svg" alt="logo")
+    img.logo(src="/images/logo.svg" alt="logo")
     img.avatar(src="/images/avatar.svg" alt="avatar")
     p #{firstname} #{lastname}
+         
   div.body
     div.sidebar
       form.createfolder(action=currentFolderId ? `/folders/create/${currentFolderId}` : '/folders/create' method='GET')
         button(type='submit') 
-          image.plus(src="/images/plus.svg" alt="plus") 
+          img.plus(src="/images/plus.svg" alt="plus") 
           p New folder
       form.uploadfile(action='/upload', method='POST', enctype='multipart/form-data')
         input(type='file', name='file')
         button(type='submit') Upload
+    
     div.content
+      p.subtitle Path
+      div.breadcrumb
+        a(href='/') Root
+        each folder, index in folderPath
+          if index < folderPath.length - 1
+            span > 
+            a(href=`/folders/${folderIds[index]}`) #{folder}
+          else
+            span > 
+            p #{folder}
+
       p.subtitle Folders
       div.folder 
         each folder in folders

@@ -11,6 +11,7 @@ export interface User {
 export interface Folder{
     name: string;
     id: number;
+    parentId: number | null;
 }
 
 export interface File{
@@ -84,6 +85,15 @@ export class FolderQueries {
             },
         });
     }
+    async getSingleFolderById(userId: number, folderId: number): Promise<Folder | null> {
+        return await this.prisma.folder.findFirst({
+            where: {
+                id: folderId,
+                userId,
+            },
+        });
+    }
+
 }
 
 export class FileQueries{

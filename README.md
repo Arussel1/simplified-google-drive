@@ -63,4 +63,4 @@ npm start
 + [PostgreSQL](https://www.postgresql.org/) SQL database for storing user, folder and file information. <br>
 + [Typescript](https://www.postgresql.org/) strongly-typed language for building robust and scalable applications. <br>
 + [Passport](https://www.passportjs.org/) Authentication middleware for managing user authentication and session handling in Node applications. <br>
-+[Prisma](https://www.prisma.io/) Simplified database realation and query for SQL and NoSQL database
++ [Prisma](https://www.prisma.io/) Simplified database realation and query for SQL and NoSQL database
