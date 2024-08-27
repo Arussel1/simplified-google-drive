@@ -1,5 +1,5 @@
-# Google Drive Clone
-Pet project to create a minizied Google Drive clone with Typescript, Node, Express, PostgreSQL, authentication with passport.js local startegy and PrismaORM for database interactions.  <br>
+# Cloud Storage
+Project to create a cloud storage web inspire from Google Drive with Typescript, Node, Express, PostgreSQL, authentication with Passport local startegy and PrismaORM for database interactions.  <br>
 **Demo**: :point_right:[**Click Here**](https://simplified-google-drive.onrender.com/login):point_left:. <br>
 Please allow up to 1 minutes for the website to load.
 ## Install and set up
