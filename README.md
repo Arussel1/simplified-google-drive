@@ -1,6 +1,6 @@
-# StrippedDownGoogleDrive Web App
+# Google Drive Clone
 Pet project to create a minizied Google Drive clone with Typescript, Node, Express, PostgreSQL, authentication with passport.js local startegy and PrismaORM for database interactions.  <br>
-**Demo**: :point_right:[**Not yet ready**]():point_left:. <br>
+**Demo**: :point_right:[**Click Here**](https://simplified-google-drive.onrender.com/login):point_left:. <br>
 Please allow up to 1 minutes for the website to load.
 ## Install and set up
 Follow these step below to set up the website in your local machine.
@@ -66,3 +66,6 @@ npm start
 + [Passport](https://www.passportjs.org/) Authentication middleware for managing user authentication and session handling in Node applications. <br>
 + [Prisma](https://www.prisma.io/) Simplified database relation and query for SQL and NoSQL databases. <br>
 + [Supabase](https://supabase.com/) Store images, videos, documents, and any other file type.
+
+## Database design:
+![Database design](databaseDesign.png)
