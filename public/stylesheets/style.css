@@ -175,7 +175,7 @@ input{
   border-radius: 16px;
 }
 
-.createfolder > button:hover, form.uploadfile > button:hover{
+.createfolder > button:hover, form.uploadfile > button:hover, .modifyFolder button:hover{
   background-color: #ada5a5;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -212,7 +212,7 @@ form.uploadfile input[type='file'] {
   box-sizing: border-box;
 }
 
-form.uploadfile button {
+.uploadfile button, .modifyFolder button {
   width: 120px;
   height: 40px;
   background-color: #fff;
@@ -231,7 +231,7 @@ form.uploadfile button {
 .breadcrumb{
   display: flex;
   margin-bottom: 1rem;
-  
+  width: 100%;
 }
 
 .breadcrumb a{
@@ -248,6 +248,21 @@ form.uploadfile button {
 
 .breadcrumb span{
   margin-right: 10px;
+}
+
+.modifyFolder{
+  display:flex;
+  justify-content: flex-end; 
+  margin-left: 1rem;
+  gap: 20px;
+ 
+}
+
+.modifyFolder button{
+  width: 100px;
+  height: 20px;
+  font-size: 12px;
+  box-shadow: none;
 }
 
 .subtitle{
@@ -290,4 +305,41 @@ form.uploadfile button {
 
 .file button:hover{
   background-color: #c2bebe;
+}
+
+.hidden{
+  visibility: hidden;
+}
+
+.titleContainer{
+  padding: 2rem;
+}
+
+.titleContainer h1{
+  margin-bottom: 1rem;
+}
+
+.titleContainer p{
+  margin-bottom: 0.5rem;
+}
+
+.buttonContainer{
+  display: flex;
+  gap: 25px;
+}
+
+.buttonContainer button{
+  width: 120px;
+  height:40px;
+  background-color: #FFF;
+  border: 1px solid black;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  font-size: 14px;
+}
+
+.buttonContainer button:hover{
+  cursor: pointer;
+  background-color: #ccc7c7;
+  transition: background-color 0.3s;
 }

@@ -1,10 +1,13 @@
 extends layout
 
 block content
-  div.file-details
+  div.titleContainer
     h1 File Details
     p Name: #{fileName}
-    p Size: #{fileSize} bytes
+    p Size: #{fileSize} #{unit}
     p Uploaded on: #{uploadTime}
-    a(href=`/files/download/${fileId}`) Download File
-    a(href='/') Return to Home
+    div.buttonContainer
+      form(action=`/files/download/${fileId}` method="GET") 
+        button(type="submit") Download File
+      form(action='/' method="GET") 
+        button(type="submit") Return Home

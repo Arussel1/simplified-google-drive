@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    form.login(action=`/folders/update/${folderId}`, method="POST")
+        p.title Update Name
+        div.formcomponent
+            label(for="name") Name
+            input(type="text"
+                  name="name"
+                  value=(formInfo ? formInfo.username : ''))
+        button.formbutton(type="submit") Submit

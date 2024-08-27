@@ -6,6 +6,9 @@ import upload from '../config/multerConfig';
 const router = express.Router();
 
 router.get('/', isAuthenticated, controlFolderGet);
+router.get('/folders/create', isAuthenticated, (req, res, next) => {
+  res.render('createFolder', { currentFolderId: null});
+});
 router.get('/folders/:id', isAuthenticated, controlFolderGet);
 router.get('/files/:id', isAuthenticated, controlFileGet);
 router.get('/files/download/:id', isAuthenticated, downloadFile);
@@ -41,21 +44,18 @@ router.post('/logout', (req, res, next) => {
 
 router.post('/upload', isAuthenticated, upload.single('file'), controlFilePost);
 router.post('/upload/:folderId', isAuthenticated, upload.single('file'), controlFilePost);
-
-router.get('/folders/create', isAuthenticated, (req, res, next) => {
-  res.render('createFolder', { currentFolderId: null});
-});
 router.get('/folders/create/:id', isAuthenticated, (req, res, next) => {
   res.render('createFolder', { currentFolderId: req.params.id});
 });
-router.post('/folders/create/:id', isAuthenticated, controlFolderPost);
 router.post('/folders/create', isAuthenticated, controlFolderPost);
+router.post('/folders/create/:id', isAuthenticated, controlFolderPost);
+
 
 router.get('/folders/update/:id', isAuthenticated, (req, res, next) => {
-  res.render('updateFolder')
+  res.render('updateFolder', { folderId: req.params.id})
 })
-router.put('folders/:id', isAuthenticated, controlFolderPut)
+router.post('/folders/update/:id', isAuthenticated, controlFolderPut)
 
-router.delete('folder/:id', isAuthenticated, controlFolderDelete)
+router.post('/folders/delete/:id', isAuthenticated, controlFolderDelete)
 
 export default router

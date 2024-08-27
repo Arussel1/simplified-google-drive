@@ -2,24 +2,37 @@ import { User,  FileQueries } from "../config/queries";
 import { Request, Response, NextFunction } from "express";
 import { supabase } from './../config/supabaseClient';
 import { Readable } from 'stream';
+import { DateTime } from 'luxon';
 
 const fileQueries = new FileQueries();
 export const controlFileGet = async (req: Request, res: Response, next: NextFunction) => {
     try {
+        const fileSizeUnit = ["B", "KB", "MB", "GB"];
+        let fileSizeTruncate = 0;
         const fileId = Number(req.params.id);
         const userId = (req.user as User).id;
-
+        
         const file = await fileQueries.getFileById(userId, fileId);
-
+        
         if (!file) {
             return res.status(404).send('File not found');
         }
+
+        while(file.size > 1024){
+            file.size = Math.floor(file.size/1024);
+            fileSizeTruncate++;
+        }
+
+
+
+
         res.render('fileDetails', {
             fileName: file.name,
             fileSize: file.size,
-            uploadTime: file.createdAt,
+            uploadTime: DateTime.fromJSDate(file.createdAt).toFormat('dd-MM-yyyy HH:mm'),
             fileUrl: file.url,
-            fileId: file.id
+            fileId: file.id,
+            unit: fileSizeUnit[fileSizeTruncate],
         });
     } catch (error) {
         next(error);

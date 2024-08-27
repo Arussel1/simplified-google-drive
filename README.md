@@ -35,9 +35,10 @@ touch .env
 5. Add your environment inside the file: <br>
 
 ```bash
-DB_CONNECTION_STRING=
-PORT=
+DATABASE_URL=
 FOO_COOKIE_SECRET=
+SUPABASE_KEY=
+SUPABASE_URL=
 ```
 
 6. Start the dev server:<br>
@@ -60,7 +61,8 @@ npm start
 + [Node](https://nodejs.org/en) as runtime environment. <br>
 + [Pug](https://pugjs.org/api/getting-started.html) as server-side template rendering. <br>
 + [Express](https://expressjs.com/) as backend framework. <br>
-+ [PostgreSQL](https://www.postgresql.org/) SQL database for storing user, folder and file information. <br>
-+ [Typescript](https://www.postgresql.org/) strongly-typed language for building robust and scalable applications. <br>
++ [PostgreSQL](https://www.postgresql.org/) SQL database for storing user, folder, and file information. <br>
++ [TypeScript](https://www.typescriptlang.org/) strongly-typed language for building robust and scalable applications. <br>
 + [Passport](https://www.passportjs.org/) Authentication middleware for managing user authentication and session handling in Node applications. <br>
-+ [Prisma](https://www.prisma.io/) Simplified database realation and query for SQL and NoSQL database
++ [Prisma](https://www.prisma.io/) Simplified database relation and query for SQL and NoSQL databases. <br>
++ [Supabase](https://supabase.com/) Store images, videos, documents, and any other file type.

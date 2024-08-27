@@ -102,6 +102,26 @@ export class FolderQueries {
             },
         });
     }
+    async updateFolderName(userId: number, folderId: number, newName: string): Promise<void>{
+         await this.prisma.folder.update({
+            data: {
+                name: newName
+            },
+            where: {
+                id: folderId,
+                userId
+            }
+        })
+    }
+
+    async deleteFolderById(folderId: number, userId: number): Promise<void>{
+        await this.prisma.folder.delete({
+            where: {
+                id: folderId,
+                userId
+            }
+        })
+    }
 
 }
 
@@ -139,5 +159,12 @@ export class FileQueries{
         });
       
         return fileRecord;
+      }
+      async deleteFilesByFolderId(folderId: number, userId: number): Promise<void> {
+        await this.prisma.file.deleteMany({
+            where: {
+                folderId, userId
+            }
+        })
       }
     }

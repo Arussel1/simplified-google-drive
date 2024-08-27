@@ -29,6 +29,11 @@ block content
           else
             span > 
             p #{folder}
+        div.modifyFolder(class= !currentFolderId ? "hidden" : null)
+          form(action=`/folders/update/${currentFolderId}` method='GET')
+            button(type="submit") Change name
+          form(action=`/folders/delete/${currentFolderId}` method='POST')
+            button(type="submit") Delete folder
 
       p.subtitle Folders
       div.folder 

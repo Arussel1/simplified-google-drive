@@ -81,6 +81,27 @@ export const controlFolderPost = async (req: Request, res: Response, next: NextF
     }
 };
 
-export const controlFolderPut = async (req: Request, res: Response, next:NextFunction) => {}
+export const controlFolderPut = async (req: Request, res: Response, next: NextFunction) => {
+    const folderId = Number(req.params.id);
+    const newName = req.body.name;
+    console.log(newName)
+    try {
+        await folderQueries.updateFolderName((req.user as User).id, folderId, newName);
+        res.redirect(`/folders/${folderId}`);
+    } catch (error) {
+        console.error('Error updating folder name:', error);
+        res.status(500).json({ error: 'Failed to update folder name' });
+    }  
+}
 
-export const controlFolderDelete = async (req: Request, res: Response, next:NextFunction) => {}
+export const controlFolderDelete = async (req: Request, res: Response, next:NextFunction) => {
+   const result =  await folderQueries.getFolderById((req.user as User).id, Number(req.params.id) );
+   console.log(result)
+   if(result.length > 0){
+    res.status(500).json({ error: 'Delete all child folder first before delete this folder' });
+   }else{
+    await fileQueries.deleteFilesByFolderId(Number(req.params.id),(req.user as User).id);
+    await folderQueries.deleteFolderById(Number(req.params.id),(req.user as User).id);
+    res.redirect('/');
+   }
+}
